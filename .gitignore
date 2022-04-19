@@ -1,0 +1,17 @@
+# Mac specific folder
+.DS_Store
+# Logs
+logs
+*.log*
+# Dependency directories
+node_modules
+# Optional npm cache directory
+.npm
+# Optional eslint cache
+.eslintcache
+# Yarn Integrity file
+.yarn-integrity
+# dotenv environment variables file
+.env
+# dist directories
+dist

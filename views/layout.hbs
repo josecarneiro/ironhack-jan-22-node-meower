@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/styles/style.css" />
+</head>
+
+<body>
+  <nav>
+    <a href="/">😸 Meower</a>
+    {{#if user}}
+    <a href="/meow/create">Create Meow</a>
+    <a href="/private">{{user.name}}'s Profile</a>
+    <form action="/authentication/sign-out" method="POST">
+      <button>Sign Out</button>
+    </form>
+    {{else}}
+    <a href="/authentication/sign-in">Sign In</a>
+    <a href="/authentication/sign-up">Sign Up</a>
+    {{/if}}
+  </nav>
+  {{{body}}}
+  <script src="/scripts/script.js"></script>
+</body>
+
+</html>

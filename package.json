@@ -1,0 +1,36 @@
+{
+  "name": "meower",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./server",
+    "dev": "nodemon ./server",
+    "dev:debug": "DEBUG=meower* npm run dev",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-mongo": "^4.6.0",
+    "debug": "^4.3.4",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "hbs": "^4.2.0",
+    "http-errors": "^2.0.0",
+    "mongoose": "^6.2.11",
+    "morgan": "^1.10.0",
+    "node-sass-middleware": "^1.0.1",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "mocha": "^9.2.2",
+    "nodemon": "^2.0.15",
+    "eslint": "^8.13.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "prettier": "^2.6.2"
+  }
+}

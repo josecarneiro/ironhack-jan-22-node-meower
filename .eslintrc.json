@@ -1,0 +1,23 @@
+{
+  "root": true,
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "ecmaFeatures": {
+      "impliedStrict": false
+    }
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {},
+      { "usePrettierrc": true },
+      { "endOfLine": "auto" }
+    ],
+    "no-unused-vars": "off"
+  }
+}
