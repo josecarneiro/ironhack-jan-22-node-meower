@@ -1,4 +1,12 @@
 {
   "singleQuote": true,
-  "trailingComma": "none"
+  "trailingComma": "none",
+  "overrides": [
+    {
+      "files": "*.hbs",
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
 }

@@ -86,4 +86,21 @@ label {
   margin-bottom: 0.5em;
 }
 
+.publication-item {
+  display: flex;
+  align-items: center;
+  margin: 1em 0;
+}
+
+.publication-item p {
+  margin: 0;
+}
+
+.publication-item img {
+  width: 6em;
+  height: 6em;
+  margin-right: 1em;
+  object-fit: cover;
+}
+
 /*# sourceMappingURL=style.css.map */

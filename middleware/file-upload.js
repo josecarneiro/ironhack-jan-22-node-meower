@@ -11,3 +11,14 @@ const storage = new multerStorageCloudinary.CloudinaryStorage({
 const upload = multer({ storage });
 
 module.exports = upload;
+
+// const handleFileUpload = (name) => {
+//   return (req, res, next) => {
+//     return upload.single(name).catch((error) => next(error));
+//   };
+// };
+
+// const handleFileUpload = (name) => (req, res, next) =>
+//   upload.single(name).catch((error) => next(error));
+
+// module.exports = handleFileUpload;

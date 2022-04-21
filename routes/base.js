@@ -7,6 +7,7 @@ const Publication = require('./../models/publication');
 
 router.get('/', (req, res, next) => {
   Publication.find()
+    .sort({ createdAt: -1 })
     // telling mongoose to populate the creator property
     // tells it to fetch documents from the users collection
     // (since the ref property for creator refers to the User model

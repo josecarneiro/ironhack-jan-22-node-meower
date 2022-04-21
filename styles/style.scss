@@ -83,3 +83,18 @@ textarea {
 label {
   margin-bottom: 0.5em;
 }
+
+.publication-item {
+  display: flex;
+  align-items: center;
+  margin: 1em 0;
+  p {
+    margin: 0;
+  }
+  img {
+    width: 6em;
+    height: 6em;
+    margin-right: 1em;
+    object-fit: cover;
+  }
+}

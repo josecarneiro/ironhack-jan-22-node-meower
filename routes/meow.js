@@ -17,7 +17,12 @@ meowRouter.post(
   fileUpload.single('picture'),
   (req, res, next) => {
     const { message } = req.body;
-    const picture = req.file.path;
+    // IF there is a picture,
+    // store the url in the picture variable
+    let picture;
+    if (req.file) {
+      picture = req.file.path;
+    }
     // Call create method on Publication model
     Publication.create({
       message,
@@ -47,7 +52,19 @@ meowRouter.get('/:id', (req, res, next) => {
 });
 
 // GET - '/meow/:id/edit' - Loads meow from database, renders meow edit page
+
 // POST - '/meow/:id/edit' - Handles edit form submission.
+
 // POST - '/meow/:id/delete' - Handles deletion.
+meowRouter.post('/:id/delete', (req, res, next) => {
+  const { id } = req.params;
+  Publication.findByIdAndRemove(id)
+    .then(() => {
+      res.redirect('/');
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
 
 module.exports = meowRouter;

@@ -23,7 +23,7 @@ POST - '/authentication/sign-out' - Handles user sign-out ✅
 
 GET - '/meow/create' - Renders meow creation page ✅
 POST - '/meow/create' - Handles new meow creation ✅
-GET - '/meow/:id' - Loads meow from database, renders single meow page ❌
+GET - '/meow/:id' - Loads meow from database, renders single meow page ✅
 GET - '/meow/:id/edit' - Loads meow from database, renders meow edit page ❌
 POST - '/meow/:id/edit' - Handles edit form submission. ❌
 POST - '/meow/:id/delete' - Handles deletion. ❌
@@ -34,17 +34,17 @@ POST - '/profile/:id/edit' - Handles profile edit form submission. ❌
 
 ## Models
 
-User
+User ❌
 
 - name: String, required ✅
 - email: String, required ✅
 - passwordHashAndSalt: String, required ✅
 - picture: String ❌
 
-Publication ❌
+Publication ✅
 
 - message: String, required, maxlength 300 ✅
-- picture: String ❌
+- picture: String ✅
 - creator: ObjectId of a document in the users collection, required ✅
 - createdAt: Date (add timestamps option to the publicationSchema) ✅
 - updatedAt: Date (add timestamps option to the publicationSchema) ✅
