@@ -9,7 +9,9 @@ const publicationSchema = new mongoose.Schema(
       // Ensures that any spaces at the beginning or ending of string are removed
       trim: true
     },
-    // Missing creator and picture
+    picture: {
+      type: String
+    },
     creator: {
       // tell mongoose an object id of another document
       // will be stored in this property

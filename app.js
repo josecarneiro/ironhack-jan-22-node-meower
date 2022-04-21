@@ -33,6 +33,12 @@ app.use(
 );
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
+// Allows us to extract request bodies for forms
+// submitted with the default encoding type of urlencoded
+// application/x-www-form-urlencoded
+// However, this middleware does not decode
+// request bodies that use different encoding types
+// such as multipart/form-data
 app.use(express.urlencoded({ extended: true }));
 app.use(
   expressSession({

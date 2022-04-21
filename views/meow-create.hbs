@@ -1,9 +1,15 @@
 <h1>Publish meow</h1>
 
 {{!-- We can omit action because we want form to be posted to same path --}}
-<form method="POST">
+{{!-- By adding the encoding type of "multipart/form-data" to the form element
+I'm ensuring that binary data (file contents) get properly submited --}}
+<form method="POST" enctype="multipart/form-data">
   <label for="input-message">Message</label>
   <textarea id="input-message" name="message" placeholder="Your message..."></textarea>
+
+  {{!-- Adding the accept attribute tells the browser to only allow certain file types --}}
+  <label for="input-picture">An illustrative picture</label>
+  <input id="input-picture" type="file" accept="image/*" name="picture" />
 
   <button>Publish Meow</button>
 </form>

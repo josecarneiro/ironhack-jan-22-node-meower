@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.29.1",
     "connect-mongo": "^4.6.0",
     "debug": "^4.3.4",
     "dotenv": "^16.0.0",
@@ -19,6 +20,8 @@
     "http-errors": "^2.0.0",
     "mongoose": "^6.2.11",
     "morgan": "^1.10.0",
+    "multer": "^1.4.4",
+    "multer-storage-cloudinary": "^4.0.0",
     "node-sass-middleware": "^1.0.1",
     "serve-favicon": "^2.5.0"
   },

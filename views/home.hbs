@@ -1,6 +1,6 @@
 {{#each publications}}
-<div>
+<a href="/meow/{{_id}}">
   <p>{{ message }}</p>
   <small>{{ createdAt }}</small> | <small>{{ creator.name }}</small>
-</div>
+</a>
 {{/each}}
