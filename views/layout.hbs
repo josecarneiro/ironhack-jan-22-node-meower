@@ -13,7 +13,11 @@
     <a href="/">😸 Meower</a>
     {{#if user}}
     <a href="/meow/create">Create Meow</a>
-    <a href="/private">{{user.name}}'s Profile</a>
+    <a href="/profile/{{user._id}}">
+      {{#if user.picture}}
+      <img src="{{user.picture}}" alt="{{user.name}}" />
+      {{/if}}
+      {{user.name}}'s Profile</a>
     <form action="/authentication/sign-out" method="POST">
       <button>Sign Out</button>
     </form>

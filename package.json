@@ -23,6 +23,7 @@
     "multer": "^1.4.4",
     "multer-storage-cloudinary": "^4.0.0",
     "node-sass-middleware": "^1.0.1",
+    "nodemailer": "^6.7.3",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {

@@ -5,7 +5,7 @@
 I'm ensuring that binary data (file contents) get properly submited --}}
 <form method="POST" enctype="multipart/form-data">
   <label for="input-message">Message</label>
-  <textarea id="input-message" name="message" placeholder="Your message..."></textarea>
+  <textarea id="input-message" name="message" placeholder="Your message..." required></textarea>
 
   {{!-- Adding the accept attribute tells the browser to only allow certain file types --}}
   <label for="input-picture">An illustrative picture</label>

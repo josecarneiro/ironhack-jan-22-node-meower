@@ -29,12 +29,26 @@ nav {
   button {
     padding: 1em 0;
     border: 0;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+  a,
+  form {
+    display: inline-flex;
+    align-items: center;
     &:not(:last-child) {
       margin-right: 1em;
     }
     &:first-child {
       margin-right: auto;
     }
+  }
+  img {
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1em;
   }
 }
 
@@ -75,6 +89,10 @@ button,
   background-color: transparent;
 }
 
+.btn {
+  display: inline-flex;
+}
+
 textarea {
   min-height: 8em;
   resize: vertical;
@@ -96,5 +114,14 @@ label {
     height: 6em;
     margin-right: 1em;
     object-fit: cover;
+  }
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  img {
+    width: 20em;
   }
 }

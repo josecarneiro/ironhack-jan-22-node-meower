@@ -1,11 +1,21 @@
+{{#if publication.picture}}
+<img src="{{publication.picture}}" alt="{{publication.message}}">
+{{/if}}
+
 <p>{{publication.message}}</p>
 
-<small>{{publication.createdAt}}</small>
+<small>{{date publication.createdAt}}</small>
 
-<em>{{publication.creator.name}}</em>
+<br />
 
-<a href="/meow/{{ publication._id }}/edit">Edit Meow</a>
+<a href="/profile/{{publication.creator._id}}">{{publication.creator.name}}</a>
+
+{{#if userIsOwner}}
+<a href="/meow/{{ publication._id }}/edit" class="btn">Edit Meow</a>
 
 <form method="POST" action="/meow/{{ publication._id }}/delete">
   <button>Delete Meow</button>
 </form>
+{{/if}}
+
+<script src="/scripts/meow-single-script.js"></script>

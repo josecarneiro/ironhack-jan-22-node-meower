@@ -1,3 +1,3 @@
-window.addEventListener('load', () => {
-  console.log('Ironmaker app started successfully!');
-}, false);
+window.addEventListener('click', () => {
+  console.log('Window was clicked');
+});

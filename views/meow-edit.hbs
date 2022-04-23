@@ -1,0 +1,15 @@
+<h1>Edit meow</h1>
+
+<form method="POST" enctype="multipart/form-data">
+  <label for="input-message">Message</label>
+  <textarea id="input-message" name="message" placeholder="Your message...">{{publication.message}}</textarea>
+  {{!-- <input type="text" value="{{publication.message}}" /> --}}
+
+  {{#if publication.picture}}
+  <img src="{{publication.picture}}" alt="Existing Picture">
+  {{/if}}
+  <label for="input-picture">An illustrative picture</label>
+  <input id="input-picture" type="file" accept="image/*" name="picture" />
+
+  <button>Edit Meow</button>
+</form>

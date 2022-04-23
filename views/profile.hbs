@@ -1,0 +1,12 @@
+<header class="profile-header">
+  <img src="{{profile.picture}}" alt="{{profile.name}}">
+  <h1>{{ profile.name }}</h1>
+</header>
+
+{{#if userIsOwner}}
+<a href="/profile/edit">Edit Profile</a>
+{{/if}}
+
+{{#each publications}}
+{{> publication}}
+{{/each}}

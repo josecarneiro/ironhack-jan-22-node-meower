@@ -44,21 +44,61 @@ meowRouter.get('/:id', (req, res, next) => {
   Publication.findById(id)
     .populate('creator')
     .then((publication) => {
-      res.render('meow-single', { publication });
+      let userIsOwner =
+        req.user && String(req.user._id) === String(publication.creator._id);
+      res.render('meow-single', { publication, userIsOwner });
+    })
+    .catch((error) => {
+      console.log(error);
+      next(new Error('PUBLICATION_NOT_FOUND'));
+    });
+});
+
+// GET - '/meow/:id/edit' - Loads meow from database, renders meow edit page
+meowRouter.get('/:id/edit', routeGuard, (req, res, next) => {
+  const { id } = req.params;
+  Publication.findOne({ _id: id, creator: req.user._id })
+    .then((publication) => {
+      if (!publication) {
+        throw new Error('PUBLICATION_NOT_FOUND');
+      } else {
+        res.render('meow-edit', { publication });
+      }
     })
     .catch((error) => {
       next(error);
     });
 });
 
-// GET - '/meow/:id/edit' - Loads meow from database, renders meow edit page
-
 // POST - '/meow/:id/edit' - Handles edit form submission.
+meowRouter.post(
+  '/:id/edit',
+  routeGuard,
+  fileUpload.single('picture'),
+  (req, res, next) => {
+    const { id } = req.params;
+    const { message } = req.body;
+    let picture;
+    if (req.file) {
+      picture = req.file.path;
+    }
+    Publication.findOneAndUpdate(
+      { _id: id, creator: req.user._id },
+      { message, picture }
+    )
+      .then(() => {
+        res.redirect(`/meow/${id}`);
+      })
+      .catch((error) => {
+        next(error);
+      });
+  }
+);
 
 // POST - '/meow/:id/delete' - Handles deletion.
-meowRouter.post('/:id/delete', (req, res, next) => {
+meowRouter.post('/:id/delete', routeGuard, (req, res, next) => {
   const { id } = req.params;
-  Publication.findByIdAndRemove(id)
+  Publication.findOneAndDelete({ _id: id, creator: req.user._id })
     .then(() => {
       res.redirect('/');
     })
