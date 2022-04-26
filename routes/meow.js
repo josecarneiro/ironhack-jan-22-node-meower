@@ -1,5 +1,6 @@
 const express = require('express');
 const Publication = require('./../models/publication');
+const Like = require('./../models/like');
 const routeGuard = require('./../middleware/route-guard');
 const fileUpload = require('./../middleware/file-upload');
 
@@ -99,6 +100,49 @@ meowRouter.post(
 meowRouter.post('/:id/delete', routeGuard, (req, res, next) => {
   const { id } = req.params;
   Publication.findOneAndDelete({ _id: id, creator: req.user._id })
+    .then(() => {
+      res.redirect('/');
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
+
+// POST - '/meow/:id/like' - Create a new like for this meow and authenticated user ❌
+meowRouter.post('/:id/like', routeGuard, (req, res, next) => {
+  const { id } = req.params;
+  Like.findOne({ publication: id, user: req.user._id })
+    .then((like) => {
+      if (like) {
+        throw new Error('USER_CANNOT_LIKE_PUBLICATION_TWICE');
+      } else {
+        return Like.create({ publication: id, user: req.user._id });
+      }
+    })
+    .then(() => {
+      return Like.count({ publication: id });
+    })
+    .then((likeCount) => {
+      return Publication.findByIdAndUpdate(id, { likeCount });
+    })
+    .then(() => {
+      res.redirect('/');
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
+
+// POST - '/meow/:id/unlike' - Remove the like document for this meow and authenticated user ❌
+meowRouter.post('/:id/unlike', routeGuard, (req, res, next) => {
+  const { id } = req.params;
+  Like.findOneAndDelete({ publication: id, user: req.user._id })
+    .then(() => {
+      return Like.count({ publication: id });
+    })
+    .then((likeCount) => {
+      return Publication.findByIdAndUpdate(id, { likeCount });
+    })
     .then(() => {
       res.redirect('/');
     })

@@ -21,6 +21,11 @@ const publicationSchema = new mongoose.Schema(
       // of a document in the users collection
       // (the collection that corresponds to the 'User' model)
       ref: 'User'
+    },
+    likeCount: {
+      type: Number,
+      required: true,
+      default: 0
     }
   },
   { timestamps: true }

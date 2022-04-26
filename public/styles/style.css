@@ -109,7 +109,14 @@ label {
 .publication-item {
   display: flex;
   align-items: center;
+  gap: 1em;
   margin: 1em 0;
+}
+
+.publication-item a {
+  flex: 1;
+  display: flex;
+  align-items: center;
 }
 
 .publication-item p {
@@ -121,6 +128,10 @@ label {
   height: 6em;
   margin-right: 1em;
   object-fit: cover;
+}
+
+button {
+  cursor: pointer;
 }
 
 .profile-header {

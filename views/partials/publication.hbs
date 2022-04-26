@@ -1,9 +1,21 @@
-<a href="/meow/{{_id}}" class="publication-item">
-  {{#if picture}}
-  <img src="{{picture}}" />
+<div class="publication-item">
+  <a href="/meow/{{_id}}">
+    {{#if picture}}
+    <img src="{{picture}}" />
+    {{/if}}
+    <div>
+      <p>{{ message }}</p>
+      <small>{{ date createdAt }}</small> | <small>{{ creator.name }}</small>
+    </div>
+  </a>
+  <h4>{{likeCount}}</h4>
+  {{#if liked}}
+  <form method="POST" action="/meow/{{_id}}/unlike">
+    <button>Liked</button>
+  </form>
+  {{else}}
+  <form method="POST" action="/meow/{{_id}}/like">
+    <button>Like</button>
+  </form>
   {{/if}}
-  <div>
-    <p>{{ message }}</p>
-    <small>{{ date createdAt }}</small> | <small>{{ creator.name }}</small>
-  </div>
-</a>
+</div>

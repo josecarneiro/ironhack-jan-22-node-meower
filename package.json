@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./server",
-    "dev": "nodemon ./server",
+    "dev": "nodemon ./server -e js,hbs",
     "dev:debug": "DEBUG=meower* npm run dev",
     "lint": "eslint ."
   },
